@@ -29,11 +29,7 @@ public class EventListener {
         {
             event.setCanceled(true);
             target.getCapability(CapabilityCatInventory.CAT_INVENTORY_CAPABILITY).ifPresent(h -> {
-                System.out.println("Cat has cat inventory sized " + h.getSlots());
-            });
-
-            target.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
-                System.out.println("Cat has def inventory sized " + h.getSlots());
+                System.out.println("Cat has cat inventory sized " + h.getInventory().getSlots());
             });
         }
     }

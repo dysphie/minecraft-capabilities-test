@@ -12,23 +12,23 @@ import javax.annotation.Nullable;
 
 public class CapabilityCatInventory {
 
-    @CapabilityInject(CapabilityCatInventory.class)
-    public static Capability<IItemHandler> CAT_INVENTORY_CAPABILITY = null;
+    @CapabilityInject(ICatInventory.class)
+    public static Capability<ICatInventory> CAT_INVENTORY_CAPABILITY = null;
 
     public void register() {
-        CapabilityManager.INSTANCE.register(IItemHandler.class, new Storage(), CatInventory::new);
+        CapabilityManager.INSTANCE.register(ICatInventory.class, new Storage(), CatInventory::new);
     }
 
-    public static class Storage implements Capability.IStorage<IItemHandler> {
+    public static class Storage implements Capability.IStorage<ICatInventory> {
 
         @Nullable
         @Override
-        public INBT writeNBT(Capability<IItemHandler> capability, IItemHandler instance, Direction side) {
+        public INBT writeNBT(Capability<ICatInventory> capability, ICatInventory instance, Direction side) {
             return null;
         }
 
         @Override
-        public void readNBT(Capability<IItemHandler> capability, IItemHandler instance, Direction side, INBT nbt) {
+        public void readNBT(Capability<ICatInventory> capability, ICatInventory instance, Direction side, INBT nbt) {
 
         }
     }

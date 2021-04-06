@@ -1,10 +1,12 @@
 package com.example.examplemod;
 
+import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 
-public class CatInventory extends ItemStackHandler {
+public class CatInventory implements ICatInventory {
 
-    public CatInventory() {
-        super(2);
+    @Override
+    public IItemHandler getInventory() {
+        return new ItemStackHandler(2);
     }
 }

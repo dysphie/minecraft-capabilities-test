@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 public class CatInventoryProvider implements ICapabilityProvider {
 
     private final CatInventory inventory = new CatInventory();
-    private final LazyOptional<IItemHandler> inventoryOptional = LazyOptional.of(() -> inventory);
+    private final LazyOptional<ICatInventory> inventoryOptional = LazyOptional.of(() -> inventory);
 
     public void invalidate() {
         inventoryOptional.invalidate();
