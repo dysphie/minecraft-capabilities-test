@@ -11,7 +11,7 @@ import javax.annotation.Nullable;
 
 public class CatInventoryProvider implements ICapabilityProvider {
 
-    private final ItemStackHandler inventory = new ItemStackHandler(2);
+    private final CatInventory inventory = new CatInventory();
     private final LazyOptional<IItemHandler> inventoryOptional = LazyOptional.of(() -> inventory);
 
     public void invalidate() {

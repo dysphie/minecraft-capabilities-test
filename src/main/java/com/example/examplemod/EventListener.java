@@ -8,6 +8,7 @@ import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.items.CapabilityItemHandler;
 
 @Mod.EventBusSubscriber(modid = ExampleMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE, value = Dist.CLIENT)
 public class EventListener {
@@ -29,6 +30,10 @@ public class EventListener {
             event.setCanceled(true);
             target.getCapability(CapabilityCatInventory.CAT_INVENTORY_CAPABILITY).ifPresent(h -> {
                 System.out.println("Cat has cat inventory sized " + h.getSlots());
+            });
+
+            target.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
+                System.out.println("Cat has def inventory sized " + h.getSlots());
             });
         }
     }

@@ -12,11 +12,11 @@ import javax.annotation.Nullable;
 
 public class CapabilityCatInventory {
 
-    @CapabilityInject(IItemHandler.class)
+    @CapabilityInject(CapabilityCatInventory.class)
     public static Capability<IItemHandler> CAT_INVENTORY_CAPABILITY = null;
 
     public void register() {
-        CapabilityManager.INSTANCE.register(IItemHandler.class, new Storage(), ItemStackHandler::new);
+        CapabilityManager.INSTANCE.register(IItemHandler.class, new Storage(), CatInventory::new);
     }
 
     public static class Storage implements Capability.IStorage<IItemHandler> {
